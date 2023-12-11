@@ -1,0 +1,137 @@
+%% Overleaf			
+%% Software Manual and Technical Document Template	
+%% 									
+%% This provides an example of a software manual created in Overleaf.
+
+\documentclass{ol-softwaremanual}
+
+% Packages used in this example
+\usepackage{graphicx}  % for including images
+\usepackage{microtype} % for typographical enhancements
+\usepackage{minted}    % for code listings
+\usepackage{amsmath}   % for equations and mathematics
+\setminted{style=friendly,fontsize=\small}
+\renewcommand{\listoflistingscaption}{List of Code Listings}
+\usepackage{hyperref}  % for hyperlinks
+\usepackage[a4paper,top=3cm,bottom=3cm,left=2.75cm,right=2.75cm]{geometry} % for setting page size and margins
+
+% Custom macros used in this example document
+\newcommand{\doclink}[2]{\href{#1}{#2}\footnote{\url{#1}}}
+\newcommand{\cs}[1]{\texttt{\textbackslash #1}}
+
+% Frontmatter data; appears on title page
+\title{SpiderHarp Manual}
+\version{1.01}
+\author{Nathan Justus}
+\softwarelogo{\includegraphics[width=8cm]{SpiderHarpPatch.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{SpiderHarp Setup}
+
+This section details how to power on and ready the SpiderHarp for demonstrations starting from a depowered state.  These instructions assume that all of the mechanical setup is complete and that all systems are wired and connected correctly, which should be sufficient for demos in Graf.
+
+\begin{enumerate}
+    \item Electrical Power-On
+    \begin{enumerate}
+        \item Make sure all power cables are connected to power strips.  The current setup in Graf shares power outlets with other LRAM experiment space so SpiderHarp power strips occasionally get repurposed. You'll want to check power cables for:
+        \begin{itemize}
+            \item All speakers
+            \item Mac Mini
+            \item Square WiFi dongle
+            \item Computer monitor
+            \item SpiderHarp internal power
+        \end{itemize}
+        \item Toggle on power switches:
+        \begin{enumerate}
+            \item Power strips (usually there are two)
+            \item SpiderHarp internal power (white mount, bottom right foot of harp)
+            \item Mac Mini
+            \item Speakers 
+        \end{enumerate}
+    \end{enumerate}
+    \item Start SpiderHarp Program
+    \begin{enumerate}
+        \item Log into Mac Mini with keyboard and computer monitor
+        \begin{itemize}
+            \item Username: LRAM
+            \item Password: lram
+        \end{itemize}
+        \item Ensure Mac Mini is connected to the local ``spider harp'' wifi network
+        \item Launch SpiderHarp program
+        \begin{enumerate}
+            \item Open new finder window
+            \item Open ``Box Sync'' folder
+            \item Run file ``SpiderHarpMax/SpiderHarp/SH\_DataProcessorV17.maxpat''
+        \end{enumerate}
+        \item Wait 1-2 minutes for program to initialize.  This can be slow, and you can tension up the web while you wait.
+    \end{enumerate}
+    \item Tension Web
+    \begin{itemize}
+        \item In the back of the web, use the tuner knobs to bring all tension displays up to approx 110-115 N.
+        \item If starting from 60 N or below, work your way around in a circle bumping each line up 30 N at a time to make sure that the web stays centered and tension is evenly distributed. I usually aim for 120 N and let downcreep take the web to 115 N.
+        \item When a line is wound up tightly after being detensioned for a while, it will slowly equalize tension into the lax sections wound inside the tuning apparatus.  Downcreep is expected.  Come back after a couple minutes and check displays again, bumping up as needed.
+    \end{itemize}
+    \item Enable SpiderHarp Play
+    \begin{enumerate}
+        \item In the main program window
+        \begin{enumerate}
+            \item Toggle "Audio On/Off" to On
+            \item Open max console using icon in the middle of the right side of the main program window
+            \item Click circular ``s bang'' button on the left side of the screen
+            \item In max console, verify MIDI data populates with no error messages
+            \item Close max console
+        \end{enumerate}
+        \item In the secondary control panel window
+        \begin{enumerate}
+            \item ``Stereo Mix Enable'' if using two speakers
+            \item ``Enable Sample Plucks''
+        \end{enumerate}
+        \item Do some test plucks
+        \begin{enumerate}
+            \item Examine piano visualization in control panel to see what notes are being detected when you pluck.
+            \item Determine which octants are C.  Sometimes the program puts them at the top, sometimes at the left.  Don't fully know why it's inconsistent.
+            \item Verify that most octants are behaving well
+            \begin{itemize}
+                \item If any are misbehaving, double-check web tension in back
+                \item If that doesn't fix it, just avoid those sections of the web when doing demos.  Bottom-right of the web can be occasionally problematic when the harp is in a bad mood.
+            \end{itemize}
+            \item Adjust speaker volume as necessary
+        \end{enumerate}
+
+    \end{enumerate}
+    \item Play Music!
+    \begin{itemize}
+        \item I like to enable sustain using the physical ``sus'' button below the monitor and play a simple C-major chord by sequentially plucking C,E,G.  Very simple, usually sounds very good and provides a great first impression of the instrument.  Sustain rattles a little bit if left on too long though so I usually disable it fairly quickly.
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+
+\section{SpiderHarp Shutdown}
+
+This section takes the SpiderHarp from a ready-to-play state back down into a powered-off config.
+
+\begin{enumerate}
+    \item Shut down Mac Mini
+    \begin{enumerate}
+        \item Close both spiderharp program windows.  They occasionally interrupt computer shutdown if not closed manually.
+        \item Soft shutdown Mac Mini.
+    \end{enumerate}
+    \item Detension all web lines to approx 60 N using tuners on the back of the harp
+    \item Turn off power switches
+    \begin{itemize}
+        \item Speakers
+        \item SpiderHarp internal power
+        \item Power strips
+    \end{itemize}
+    \item Verify all lights are off
+    \item Walk away, ignore the feeling that you're forgetting something.  You didn't.
+\end{enumerate}
+
+\end{document}
